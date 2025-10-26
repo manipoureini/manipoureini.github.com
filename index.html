@@ -14,181 +14,120 @@
             --dark: #2c3e50;
             --success: #2ecc71;
         }
-        
         * {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
         body {
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
         }
-        
         .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            width: 90%; max-width: 1200px;
+            margin: 0 auto; padding: 20px;
         }
-        
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 60px 0; text-align: center;
+            position: relative; overflow: hidden;
         }
-        
         header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
             background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
         }
-        
+
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 150px; height: 150px;
             border-radius: 50%;
             border: 5px solid rgba(255, 255, 255, 0.3);
             margin: 0 auto 20px;
             background-color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            color: var(--primary);
+            display: flex; align-items: center; justify-content: center;
         }
         .profile-img img {
-            width: 140px;        /* اندازه کوچک‌تر */
-            height: 140px;
-            border-radius: 50%;  /* گرد کردن کامل */
-            object-fit: cover;   /* برش دقیق و بدون کشیدگی */
-            border: 4px solid rgba(255, 255, 255, 0.3); /* حاشیه ظریف */
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .contact-item a {
-            color: white;
-            text-decoration: none;
+            width: 140px; height: 140px;
+            border-radius: 50%; object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
         }
 
-        .contact-item a:hover {
-            text-decoration: underline;
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .tagline { font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9; }
+
+        .contact-info {
+            display: flex; justify-content: center; flex-wrap: wrap;
+            gap: 20px; margin-top: 20px;
         }
-        
-        section {
-            padding: 60px 0;
-        }
-        
+
+        .contact-item { display: flex; align-items: center; gap: 8px; }
+        .contact-item a { color: white; text-decoration: none; }
+        .contact-item a:hover { text-decoration: underline; }
+
+        section { padding: 60px 0; }
         .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary);
-            position: relative;
+            text-align: center; margin-bottom: 40px;
+            color: var(--primary); position: relative;
         }
-        
         .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 10px auto;
-            border-radius: 2px;
+            content: ''; display: block; width: 80px; height: 4px;
+            background: var(--secondary); margin: 10px auto; border-radius: 2px;
         }
-        
+
         .card {
-            background: white;
-            border-radius: 10px;
+            background: white; border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 30px; margin-bottom: 30px;
             transition: transform 0.3s ease;
         }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
+        .card:hover { transform: translateY(-5px); }
+
         .education-item, .experience-item {
             margin-bottom: 25px;
             padding-bottom: 25px;
             border-bottom: 1px solid #eee;
         }
-        
         .education-item:last-child, .experience-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
-        
+
         .date {
             color: var(--secondary);
             font-weight: 600;
             margin-bottom: 5px;
         }
-        
+
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
-        
+
         .skill-category {
             margin-bottom: 20px;
         }
-        
+
         .skill-category h4 {
             margin-bottom: 10px;
             color: var(--primary);
         }
-        
+
         .skill-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-        
+
         .skill-tag {
             background: var(--light);
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
         }
-        
+
         .progress-container {
             width: 100%;
             background-color: #e0e0e0;
@@ -196,7 +135,7 @@
             margin: 10px 0;
             overflow: hidden;
         }
-        
+
         .progress-bar {
             height: 10px;
             background: linear-gradient(90deg, var(--secondary), var(--primary));
@@ -204,13 +143,13 @@
             width: 0%;
             transition: width 1s ease-in-out;
         }
-        
+
         .donation-section {
             background: linear-gradient(135deg, var(--primary), #1a2530);
             color: white;
             text-align: center;
         }
-        
+
         .donation-card {
             max-width: 800px;
             margin: 0 auto;
@@ -220,18 +159,18 @@
             padding: 40px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .donation-goal {
             margin: 30px 0;
         }
-        
+
         .goal-amount {
             font-size: 2rem;
             font-weight: bold;
             color: var(--success);
             margin: 10px 0;
         }
-        
+
         .donation-button {
             display: inline-block;
             background: var(--accent);
@@ -245,11 +184,11 @@
             margin-top: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .donation-button:hover {
             background: #c0392b;
         }
-        
+
         .impact-statement {
             font-style: italic;
             margin: 30px 0;
@@ -259,30 +198,18 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 30px 0;
+            background: var(--dark); color: white;
+            text-align: center; padding: 30px 0;
         }
-        
+
         .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
+            display: flex; justify-content: center; gap: 20px; margin: 20px 0;
         }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--secondary);
-        }
+
+        .social-links a { color: white; font-size: 1.5rem; transition: color 0.3s ease; }
+        .social-links a:hover { color: var(--secondary); }
     </style>
 </head>
 <body>
@@ -290,8 +217,6 @@
         <div class="container">
             <div class="profile-img">
                 <img src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/_MG_8790.jpg" alt="Mani Poureini">
-            </div>
-                <div class="placeholder" style="display: none;">
             </div>
             <h1>Mani Poureini</h1>
             <p class="tagline">Pursuing Knowledge Beyond Borders</p>
@@ -410,6 +335,41 @@
         </div>
     </section>
 
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="card">
+                <!-- Project Description -->
+                <div class="project-description">
+                    <h3>Project Overview</h3>
+                    <p>
+                        This section highlights selected research and software projects under development in the field of Social Business Intelligence, Data Analytics, and IT Management — connecting theoretical insights with real-world applications.
+                    </p>
+                </div>
+                
+                <!-- Image Slideshow -->
+                <div class="project-slideshow" style="margin-top: 30px; text-align:center;">
+                    <div class="slideshow-container">
+                        <img class="slide" src="https://via.placeholder.com/700x400?text=Project+1" style="width:80%; border-radius:10px;">
+                        <img class="slide" src="https://via.placeholder.com/700x400?text=Project+2" style="width:80%; border-radius:10px; display:none;">
+                        <img class="slide" src="https://via.placeholder.com/700x400?text=Project+3" style="width:80%; border-radius:10px; display:none;">
+                    </div>
+                    <div style="margin-top:12px;">
+                        <button class="prev" style="background:#3498db;color:#fff;border:none;padding:8px 14px;border-radius:5px;margin-right:5px;cursor:pointer;">❮</button>
+                        <button class="next" style="background:#3498db;color:#fff;border:none;padding:8px 14px;border-radius:5px;cursor:pointer;">❯</button>
+                    </div>
+                </div>
+                
+                <!-- Download Section -->
+                <div class="project-download" style="margin-top:40px;text-align:center;">
+                    <h3>Download the App</h3>
+                    <p style="margin:10px 0; font-style:italic;">Coming Soon</p>
+                    <i class="fab fa-android" style="font-size:48px;color:#2ecc71;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="donation-section">
         <div class="container">
             <h2 class="section-title" style="color: white;">Support My Academic Journey</h2>
@@ -465,13 +425,41 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const progressBar = document.getElementById('donationProgress');
-            progressBar.style.width = '25%';
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.donation-button').addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Thank you for your interest in supporting my research! Please contact me at Manipoureini@gmail.com for donation instructions.');
-            });
+            if(progressBar) progressBar.style.width = '25%';
+            
+            // Slideshow controls
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slide');
+            const nextBtn = document.querySelector('.next');
+            const prevBtn = document.querySelector('.prev');
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.style.display = 'none');
+                slides[index].style.display = 'block';
+            }
+            
+            showSlide(slideIndex);
+            
+            if (nextBtn && prevBtn) {
+                nextBtn.addEventListener('click', () => {
+                    slideIndex = (slideIndex + 1) % slides.length;
+                    showSlide(slideIndex);
+                });
+                
+                prevBtn.addEventListener('click', () => {
+                    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+                    showSlide(slideIndex);
+                });
+            }
+
+            // Donation button click
+            const donationButton = document.querySelector('.donation-button');
+            if (donationButton) {
+                donationButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your interest in supporting my research! Please contact me at Manipoureini@gmail.com for donation instructions.');
+                });
+            }
         });
     </script>
 </body>
