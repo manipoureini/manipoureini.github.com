@@ -93,6 +93,15 @@
             gap: 8px;
         }
         
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
         section {
             padding: 60px 0;
         }
@@ -232,8 +241,6 @@
         
         .donation-button:hover {
             background: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
         .impact-statement {
@@ -269,25 +276,6 @@
         .social-links a:hover {
             color: var(--secondary);
         }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .donation-card {
-                padding: 20px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -301,7 +289,7 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>Manipourcini@gmail.com</span>
+                    <span><a href="mailto:Manipoureini@gmail.com">Manipoureini@gmail.com</a></span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
@@ -309,7 +297,7 @@
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-linkedin"></i>
-                    <span>linkedin.com/in/mani-pourcini/</span>
+                    <a href="https://www.linkedin.com/in/mani-poureini/" target="_blank">linkedin.com/in/mani-poureini/</a>
                 </div>
             </div>
         </div>
@@ -320,9 +308,7 @@
             <h2 class="section-title">My Situation</h2>
             <div class="card">
                 <p>I am a dedicated Ph.D. candidate from Iran, a country facing severe financial sanctions that have created significant barriers for academics like myself. Despite these challenges, I have maintained exceptional academic performance and continue my research in the emerging field of Social Business Intelligence.</p>
-                
                 <p>The economic situation and currency devaluation in Iran have made it extremely difficult to access essential research resources, software, and international academic opportunities that are crucial for completing my doctoral studies.</p>
-                
                 <p>Your support would enable me to continue my research without interruption and contribute valuable insights to the global academic community in the field of IT management and business intelligence.</p>
             </div>
         </div>
@@ -339,7 +325,6 @@
                     <p>Specialization in Business Intelligence | Cumulative GPA: 3.90/4.00</p>
                     <p><em>Thesis:</em> Investigating and identifying the metrics needed to evaluate social business intelligence utilization readiness in Iran's online retail industry.</p>
                 </div>
-                
                 <div class="education-item">
                     <h3>Bachelor of Science in Business Administration</h3>
                     <p class="date">2018 - 2022</p>
@@ -360,9 +345,9 @@
                     <p>Tarbiat Modares University, Tehran, Iran</p>
                     <ul>
                         <li>Analyzed current IT management conditions based on the BABOK framework</li>
-                        <li>Developed comprehensive checklists for assessing IT governance using ITIL v.4, COBIT 2019, and ISO standards</li>
-                        <li>Evaluated enterprise digital maturity using the Forrester Digital Maturity Model</li>
-                        <li>Contributed to formulation and presentation of IT strategies tailored to enterprise needs</li>
+                        <li>Developed checklists for assessing IT governance using ITIL v.4, COBIT 2019, and ISO standards</li>
+                        <li>Evaluated enterprise digital maturity with the Forrester Digital Maturity Model</li>
+                        <li>Contributed to IT strategies tailored to enterprise needs</li>
                     </ul>
                 </div>
             </div>
@@ -384,7 +369,6 @@
                             <span class="skill-tag">NoSQL</span>
                         </div>
                     </div>
-                    
                     <div class="skill-category">
                         <h4>Data Analysis & Visualization</h4>
                         <div class="skill-list">
@@ -396,7 +380,6 @@
                             <span class="skill-tag">Orange</span>
                         </div>
                     </div>
-                    
                     <div class="skill-category">
                         <h4>AI & Machine Learning</h4>
                         <div class="skill-list">
@@ -405,7 +388,6 @@
                             <span class="skill-tag">Machine Learning</span>
                         </div>
                     </div>
-                    
                     <div class="skill-category">
                         <h4>Languages</h4>
                         <div class="skill-list">
@@ -424,29 +406,23 @@
             <h2 class="section-title" style="color: white;">Support My Academic Journey</h2>
             <div class="donation-card">
                 <p class="impact-statement">"Your contribution will directly support my Ph.D. research in Social Business Intelligence, enabling me to overcome financial barriers and continue making meaningful contributions to the field of Information Technology Management."</p>
-                
                 <div class="donation-goal">
                     <h3>Funding Goal</h3>
                     <div class="goal-amount">$5,000</div>
                     <p>To cover research expenses, software, and academic resources for one year</p>
-                    
                     <div class="progress-container">
                         <div class="progress-bar" id="donationProgress"></div>
                     </div>
                     <p id="progressText">25% funded</p>
                 </div>
-                
                 <p>With your support, I can:</p>
                 <ul style="text-align: left; max-width: 500px; margin: 20px auto;">
                     <li>Access essential research software and databases</li>
-                    <li>Publish my findings in international journals</li>
+                    <li>Publish results in international journals</li>
                     <li>Participate in global academic conferences</li>
                     <li>Complete my dissertation without interruption</li>
                 </ul>
-                
                 <a href="#donate" class="donation-button">Make a Donation</a>
-                
-                <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">All donations will be acknowledged with a personal thank you and updates on my research progress.</p>
             </div>
         </div>
     </section>
@@ -458,10 +434,9 @@
                 <h3>Conference Paper</h3>
                 <p>"Investigating the Impact of Privacy Protection on Competitive Advantage of Companies"</p>
                 <p class="date">1st International Conference on Empowerment of Management, Industrial Engineering, Accounting and Economics | May 2022</p>
-                
-                <h3 style="margin-top: 30px;">Honors & Awards</h3>
-                <p><strong>First Place</strong> - Smart Shared Greenhouse Business Model and Plan</p>
-                <p class="date">Research, Market, and Startup Entrepreneurship Competition | Tarbiat Modares University | December 2023</p>
+                <h3 style="margin-top:30px;">Honors & Awards</h3>
+                <p><strong>First Place</strong> - Smart Shared Greenhouse Business Model</p>
+                <p class="date">Startup Entrepreneurship Competition | Tarbiat Modares University | December 2023</p>
             </div>
         </div>
     </section>
@@ -470,35 +445,23 @@
         <div class="container">
             <h3>Mani Poureini</h3>
             <p>Ph.D. Candidate in Information Technology Management</p>
-            
             <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/mani-poureini/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:Manipoureini@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-            
-            <p>&copy; 2025 Mani Poureini. All rights reserved.</p>
+            <p>&copy; 2023 Mani Poureini. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Animate progress bar on page load
         document.addEventListener('DOMContentLoaded', function() {
             const progressBar = document.getElementById('donationProgress');
-            const progressText = document.getElementById('progressText');
-            
-            // Simulate 25% progress
-            setTimeout(() => {
-                progressBar.style.width = '0%';
-            }, 500);
+            progressBar.style.width = '25%';
         });
-        
-        // Simple form for donation (would need backend in real implementation)
         document.addEventListener('DOMContentLoaded', function() {
-            const donationButton = document.querySelector('.donation-button');
-            
-            donationButton.addEventListener('click', function(e) {
+            document.querySelector('.donation-button').addEventListener('click', function(e) {
                 e.preventDefault();
-                alert('Thank you for your interest in supporting my research! In a real implementation, this would redirect to a secure payment portal. Please contact me directly at Manipoureini@gmail.com for donation instructions.');
+                alert('Thank you for your interest in supporting my research! Please contact me at Manipoureini@gmail.com for donation instructions.');
             });
         });
     </script>
