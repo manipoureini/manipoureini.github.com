@@ -117,16 +117,7 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
-
-        .skill-category {
-            margin-bottom: 20px;
-        }
-
-        .skill-category h4 {
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
+        
         .skill-list {
             display: flex;
             flex-wrap: wrap;
@@ -140,75 +131,11 @@
             font-size: 0.9rem;
         }
 
-        .progress-container {
-            width: 100%;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            margin: 10px 0;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 10px;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-            border-radius: 10px;
-            width: 0%;
-            transition: width 1s ease-in-out;
-        }
-
-        .donation-section {
-            background: linear-gradient(135deg, var(--primary), #1a2530);
-            color: white;
-            text-align: center;
-        }
-
-        .donation-card {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .donation-goal {
+        hr.divider {
+            border: 0;
+            height: 1px;
+            background: #eee;
             margin: 30px 0;
-        }
-
-        .goal-amount {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--success);
-            margin: 10px 0;
-        }
-
-        .donation-button {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .donation-button:hover {
-            background: #c0392b;
-        }
-
-        .impact-statement {
-            font-style: italic;
-            margin: 30px 0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         footer {
@@ -249,13 +176,23 @@
         </div>
     </header>
 
-    <section id="about">
+    <section id="about-me">
         <div class="container">
-            <h2 class="section-title">My Situation</h2>
+            <h2 class="section-title">About Me</h2>
             <div class="card">
-                <p>I am a dedicated Ph.D. candidate from Iran, a country facing severe financial sanctions that have created significant barriers for academics like myself. Despite these challenges, I have maintained exceptional academic performance and continue my research in the emerging field of Social Business Intelligence.</p>
-                <p>The economic situation and currency devaluation in Iran have made it extremely difficult to access essential research resources, software, and international academic opportunities that are crucial for completing my doctoral studies.</p>
-                <p>Your support would enable me to continue my research without interruption and contribute valuable insights to the global academic community in the field of IT management and business intelligence.</p>
+                <p>As a passionate researcher and technologist, my work lies at the intersection of academia, entrepreneurship, and innovation. Academically, I am driven by a constant desire to learn and apply new scientific methodologies. My entrepreneurial focus is on navigating the new era shaped by the rise of artificial intelligence.</p>
+                <p>I am particularly fascinated by the potential of novel approaches such as social media analytics, crowdsourcing, crowdfunding, open innovation, and human-computer collaboration. My goal is to leverage these powerful tools to empower businesses, startups, and individuals in a rapidly evolving digital landscape.</p>
+                
+                <hr class="divider">
+
+                <h3 style="color: var(--primary); margin-bottom: 15px;">Research Interests</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">Human-Computer Collaboration</span>
+                    <span class="skill-tag">Smart Cities</span>
+                    <span class="skill-tag">Social Media Analytics</span>
+                    <span class="skill-tag">Business Intelligence</span>
+                    <span class="skill-tag">Entrepreneurship</span>
+                </div>
             </div>
         </div>
     </section>
@@ -383,6 +320,7 @@
         </div>
     </section>
 
+    <!--
     <section class="donation-section">
         <div class="container">
             <h2 class="section-title" style="color: white;">Support My Academic Journey</h2>
@@ -408,6 +346,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <section id="publications">
         <div class="container">
@@ -448,9 +387,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const progressBar = document.getElementById('donationProgress');
-            if(progressBar) progressBar.style.width = '25%';
-            
             // Slideshow controls
             let slideIndex = 0;
             const slides = document.querySelectorAll('.slide');
@@ -477,14 +413,6 @@
                 });
             }
 
-            // Donation button click
-            const donationButton = document.querySelector('.donation-button');
-            if (donationButton) {
-                donationButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    alert('Thank you for your interest in supporting my research! Please contact me at Manipoureini@gmail.com for donation instructions.');
-                });
-            }
         });
     </script>
 </body>
