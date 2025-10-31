@@ -110,7 +110,7 @@
         /* ======================================================= */
         @media print {
             /* --- Hide unwanted elements --- */
-            header, footer, .project-slideshow .prev, .project-slideshow .next {
+            footer, .project-slideshow .prev, .project-slideshow .next {
                 display: none !important;
             }
 
@@ -118,13 +118,37 @@
             body {
                 background-color: #fff;
                 color: #000;
-                font-size: 11pt; /* A good font size for print */
+                font-size: 11pt;
             }
             .container {
                 width: 100%;
                 max-width: 100%;
                 padding: 0;
             }
+            
+            /* --- Restyle header for a clean print version --- */
+            header {
+                background: none !important; /* Remove gradient background */
+                color: #000 !important;      /* Set text to black */
+                padding: 20px 0;             /* Reduce padding */
+                text-align: left;            /* Align text to the left for a document feel */
+                border-bottom: 2px solid #ccc; /* Add a subtle separator */
+                margin-bottom: 20px;
+                page-break-after: avoid;     /* Try not to break page right after header */
+            }
+            .profile-img {
+                display: none; /* Hide profile image in print version */
+            }
+            h1, .tagline {
+                text-align: left; /* Ensure title is left-aligned */
+            }
+            .contact-info {
+                justify-content: flex-start; /* Align contact info to the left */
+            }
+            .contact-info a {
+                color: #000 !important; /* Make contact links black */
+            }
+
 
             /* --- Reset Card styles for clean print --- */
             .card {
@@ -132,15 +156,15 @@
                 border: 1px solid #ddd;
                 padding: 20px;
                 margin-bottom: 20px;
-                /* Prevents cards from splitting across pages */
                 page-break-inside: avoid;
             }
 
             /* --- Section Styling --- */
             section {
-                padding: 10mm 0; /* Add some vertical spacing */
+                padding: 10mm 0;
             }
-             /* Start new sections on a new page, except the first one */
+            /* Start new sections on a new page, but not the very first one */
+            #about-me { page-break-before: avoid; }
             #education, #experience, #skills, #projects, #publications {
                 page-break-before: always;
             }
@@ -194,8 +218,7 @@
         </div>
     </header>
 
-    <main id="cv-content">
-        <!-- All your sections remain exactly the same here -->
+    <main>
         <section id="about-me">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
@@ -301,7 +324,7 @@
                 <a href="mailto:Manipoureini@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
 
-            <!-- The button now triggers the browser's print function -->
+            <!-- The button triggers the browser's print function -->
             <button id="download-cv-btn">
                 <i class="fas fa-print"></i>
                 Print / Save as PDF
@@ -311,11 +334,9 @@
         </div>
     </footer>
 
-    <!-- No external libraries needed for PDF generation anymore -->
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Slideshow controls (remains the same)
+            // Slideshow controls
             let slideIndex = 0;
             const slides = document.querySelectorAll('.slide');
             const nextBtn = document.querySelector('.next');
@@ -341,12 +362,13 @@
                 });
             }
 
-            // --- Simplified PDF/Print Logic ---
+            // Print/PDF Logic
             const downloadBtn = document.getElementById('download-cv-btn');
-            downloadBtn.addEventListener('click', function() {
-                // This single line opens the browser's print dialog
-                window.print();
-            });
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function() {
+                    window.print();
+                });
+            }
         });
     </script>
 </body>
