@@ -152,9 +152,29 @@
 
         .social-links a { color: white; font-size: 1.5rem; transition: color 0.3s ease; }
         .social-links a:hover { color: var(--secondary); }
+                #download-cv-btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+        }
+        #download-cv-btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+        #download-cv-btn i {
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body>
+    <!-- This part will NOT be in the PDF -->
     <header>
         <div class="container">
             <div class="profile-img">
@@ -163,219 +183,127 @@
             <h1>Mani Poureini</h1>
             <p class="tagline">Pursuing Knowledge Beyond Borders</p>
             <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span><a href="mailto:Manipoureini@gmail.com">Manipoureini@gmail.com</a></span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>(+98) 930 515 6278</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/mani-poureini/" target="_blank">linkedin.com/in/mani-poureini/</a>
-                </div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><span><a href="mailto:Manipoureini@gmail.com">Manipoureini@gmail.com</a></span></div>
+                <div class="contact-item"><i class="fas fa-phone"></i><span>(+98) 930 515 6278</span></div>
+                <div class="contact-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/mani-poureini/" target="_blank">linkedin.com/in/mani-poureini/</a></div>
             </div>
         </div>
     </header>
 
-    <section id="about-me">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="card">
-                <p> My research explores how emerging technologies—from AI and social media analytics to open innovation platforms—are transforming work, creating new forms of value, and empowering society. I am passionate about investigating these shifts using a blend of classic and cutting-edge research methodologies.</p>
-                <p> My goal is twofold: to advance academic knowledge as a future professor, and to leverage these insights to help businesses, startups, and individuals thrive in a rapidly evolving digital landscape.</p>
-                
-                <hr class="divider">
-
-                <h3 style="color: var(--primary); margin-bottom: 15px;">Research Interests</h3>
-                <div class="skill-list">
-                    <span class="skill-tag">Human-Computer Collaboration</span>
-                    <span class="skill-tag">Smart Cities</span>
-                    <span class="skill-tag">Social Media Analytics</span>
-                    <span class="skill-tag">Business Intelligence</span>
-                    <span class="skill-tag">Entrepreneurship</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="card">
-                <div class="education-item">
-                    <h3>Master of Information Technology Management</h3>
-                    <p class="date">2022 – 2025</p>
-                    <p><strong>Tarbiat Modares University, Tehran, Iran</strong></p>
-                    <p>Specialization in Business Intelligence | Cumulative GPA: 3.90/4.00</p>
-                    <p><em>Thesis:</em> Investigating and identifying the metrics needed to evaluate social business intelligence utilization readiness in Iran's online retail industry.</p>
-                </div>
-                <div class="education-item">
-                    <h3>Bachelor of Science in Business Administration</h3>
-                    <p class="date">2018 - 2022</p>
-                    <p><strong>Lorestan University, Khorramabad, Iran</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Research Experience</h2>
-            <div class="card">
-                <div class="experience-item">
-                    <h3>Research Assistant</h3>
-                    <p class="date">February 2024 – February 2025</p>
-                    <p><strong>Center for Management Studies and Technology Development</strong></p>
-                    <p>Tarbiat Modares University, Tehran, Iran</p>
-                    <ul>
-                        <li>Analyzed current IT management conditions based on the BABOK framework</li>
-                        <li>Developed checklists for assessing IT governance using ITIL v.4, COBIT 2019, and ISO standards</li>
-                        <li>Evaluated enterprise digital maturity with the Forrester Digital Maturity Model</li>
-                        <li>Contributed to IT strategies tailored to enterprise needs</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="card">
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h4>Technical Skills</h4>
-                        <div class="skill-list">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">C#</span>
-                            <span class="skill-tag">NoSQL</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Data Analysis & Visualization</h4>
-                        <div class="skill-list">
-                            <span class="skill-tag">Power BI</span>
-                            <span class="skill-tag">Tableau</span>
-                            <span class="skill-tag">IBM SPSS</span>
-                            <span class="skill-tag">KH Coder</span>
-                            <span class="skill-tag">NodeXL</span>
-                            <span class="skill-tag">Orange</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>AI & Machine Learning</h4>
-                        <div class="skill-list">
-                            <span class="skill-tag">Decision Trees</span>
-                            <span class="skill-tag">Regression Analysis</span>
-                            <span class="skill-tag">Machine Learning</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Languages</h4>
-                        <div class="skill-list">
-                            <span class="skill-tag">English (Advanced)</span>
-                            <span class="skill-tag">Persian (Native)</span>
-                            <span class="skill-tag">French (Basic)</span>
-                        </div>
+    <!-- This is the main content that will be converted to PDF -->
+    <main id="cv-content">
+        <section id="about-me">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="card">
+                    <p class="justified-text">My research explores how emerging technologies—from AI and social media analytics to open innovation platforms—are transforming work, creating new forms of value, and empowering society. I am passionate about investigating these shifts using a blend of classic and cutting-edge research methodologies.</p>
+                    <p class="justified-text">My goal is twofold: to advance academic knowledge as a future professor, and to leverage these insights to help businesses, startups, and individuals thrive in a rapidly evolving digital landscape.</p>
+                    <hr class="divider">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">Research Interests</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Human-Computer Collaboration</span>
+                        <span class="skill-tag">Smart Cities</span>
+                        <span class="skill-tag">Social Media Analytics</span>
+                        <span class="skill-tag">Business Intelligence</span>
+                        <span class="skill-tag">Entrepreneurship</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="card">
-                <!-- Project Description -->
-                <div class="project-description">
-                    <h3>Featured Project: Busyto CRM</h3>
-                    <p>
-                        Busyto is a free, AI-powered Customer Relationship Management (CRM) application designed specifically for small businesses. It aims to simplify customer relationship management by integrating intelligent features, offered completely free of charge to empower growing enterprises.
-                    </p>
-                </div>
-                
-                <!-- Image Slideshow -->
-                <div class="project-slideshow" style="margin-top: 30px; text-align:center;">
-                    <div class="slideshow-container">
-                        <img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page1.jpg" style="width:40%; border-radius:10px;" alt="Busyto App - Main Screen">
-                        <img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page2.jpg" style="width:40%; border-radius:10px; display:none;" alt="Busyto App - Customer List">
-                        <img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page3.jpg" style="width:40%; border-radius:10px; display:none;" alt="Busyto App - Profile Management">
-                        <img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page4.jpg" style="width:40%; border-radius:10px; display:none;" alt="Busyto App - Advanced Options">
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="card">
+                    <div class="education-item">
+                        <h3>Master of Information Technology Management</h3>
+                        <p class="date">2022 – 2025</p>
+                        <p><strong>Tarbiat Modares University, Tehran, Iran</strong></p>
+                        <p>Specialization in Business Intelligence | Cumulative GPA: 3.90/4.00</p>
+                        <p><em>Thesis:</em> Investigating and identifying the metrics needed to evaluate social business intelligence utilization readiness in Iran's online retail industry.</p>
                     </div>
-                    <div style="margin-top:12px;">
-                        <button class="prev" style="background:#3498db;color:#fff;border:none;padding:8px 14px;border-radius:5px;margin-right:5px;cursor:pointer;">❮</button>
-                        <button class="next" style="background:#3498db;color:#fff;border:none;padding:8px 14px;border-radius:5px;cursor:pointer;">❯</button>
+                    <div class="education-item">
+                        <h3>Bachelor of Science in Business Administration</h3>
+                        <p class="date">2018 - 2022</p>
+                        <p><strong>Lorestan University, Khorramabad, Iran</strong></p>
                     </div>
                 </div>
-                
-                <!-- Download Section -->
-                <div class="project-download" style="margin-top:40px;text-align:center;">
-                    <h3>Download the Busyto App</h3>
-                    <p style="margin:10px 0; font-style:italic;">Coming Soon</p>
-                    <a href="https://github.com/manipoureini/Busyto" target="_blank"><i class="fab fa-android" style="font-size:48px;color:#2ecc71;"></i></a>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!--
-    <section class="donation-section">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Support My Academic Journey</h2>
-            <div class="donation-card">
-                <p class="impact-statement">"Your contribution will directly support my Ph.D. research in Social Business Intelligence, enabling me to overcome financial barriers and continue making meaningful contributions to the field of Information Technology Management."</p>
-                <div class="donation-goal">
-                    <h3>Funding Goal</h3>
-                    <div class="goal-amount">$5,000</div>
-                    <p>To cover research expenses, software, and academic resources for one year</p>
-                    <div class="progress-container">
-                        <div class="progress-bar" id="donationProgress"></div>
+        <section id="experience">
+            <div class="container">
+                <h2 class="section-title">Research Experience</h2>
+                <div class="card">
+                    <div class="experience-item">
+                        <h3>Research Assistant</h3>
+                        <p class="date">February 2024 – February 2025</p>
+                        <p><strong>Center for Management Studies and Technology Development</strong></p>
+                        <p>Tarbiat Modares University, Tehran, Iran</p>
+                        <ul>
+                            <li>Analyzed current IT management conditions based on the BABOK framework</li>
+                            <li>Developed checklists for assessing IT governance using ITIL v.4, COBIT 2019, and ISO standards</li>
+                            <li>Evaluated enterprise digital maturity with the Forrester Digital Maturity Model</li>
+                            <li>Contributed to IT strategies tailored to enterprise needs</li>
+                        </ul>
                     </div>
-                    <p id="progressText">25% funded</p>
-                </div>
-                <p>With your support, I can:</p>
-                <ul style="text-align: left; max-width: 500px; margin: 20px auto;">
-                    <li>Access essential research software and databases</li>
-                    <li>Publish results in international journals</li>
-                    <li>Participate in global academic conferences</li>
-                    <li>Complete my dissertation without interruption</li>
-                </ul>
-                <a href="#donate" class="donation-button">Make a Donation</a>
-            </div>
-        </div>
-    </section>
-    -->
-
-    <section id="publications">
-        <div class="container">
-            <h2 class="section-title">Publications & Honors</h2>
-            <div class="card">
-                <div class="publication-item">
-                    <h3>Conference Paper</h3>
-                    <p>"Investigating the Impact of Privacy Protection on Competitive Advantage of Companies"</p>
-                    <p class="date">1st International Conference on Empowerment of Management, Industrial Engineering, Accounting and Economics | May 2022</p>
-                </div>
-                
-                <div class="publication-item">
-                    <h3>Research Project</h3>
-                    <p><strong>Systematic Literature Review on Social Business Intelligence Readiness Factors (On going)</strong></p>
-                    <p style="font-style: italic;">Conducting a comprehensive review of existing literature to identify and analyze the key factors influencing the readiness of enterprises for implementing social business intelligence.</p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>Honors & Awards</h3>
-                    <p><strong>First Place</strong> - Smart Shared Greenhouse Business Model</p>
-                    <p class="date">Startup Entrepreneurship Competition | Tarbiat Modares University | December 2023</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="card">
+                    <div class="skills-container">
+                        <div><h4>Technical Skills</h4><div class="skill-list"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">C++</span><span class="skill-tag">C#</span><span class="skill-tag">NoSQL</span></div></div>
+                        <div><h4>Data Analysis & Visualization</h4><div class="skill-list"><span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">IBM SPSS</span><span class="skill-tag">KH Coder</span><span class="skill-tag">NodeXL</span><span class="skill-tag">Orange</span></div></div>
+                        <div><h4>AI & Machine Learning</h4><div class="skill-list"><span class="skill-tag">Decision Trees</span><span class="skill-tag">Regression Analysis</span><span class="skill-tag">Machine Learning</span></div></div>
+                        <div><h4>Languages</h4><div class="skill-list"><span class="skill-tag">English (Advanced)</span><span class="skill-tag">Persian (Native)</span><span class="skill-tag">French (Basic)</span></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="card">
+                    <div class="project-description"><h3>Featured Project: Busyto CRM</h3><p>Busyto is a free, AI-powered Customer Relationship Management (CRM) application designed specifically for small businesses. It aims to simplify customer relationship management by integrating intelligent features, offered completely free of charge to empower growing enterprises.</p></div>
+                    <div class="project-slideshow" style="margin-top: 30px; text-align:center;"><div class="slideshow-container"><img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page1.jpg" style="width:40%; border-radius:10px;" alt="Busyto App - Main Screen"><img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page2.jpg" style="width:40%; border-radius:10px; display:none;" alt="Busyto App - Customer List"><img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page3.jpg" style="width:40%; border-radius:10px; display:none;" alt="Busyto App - Profile Management"><img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page4.jpg" style="width:40%; border-radius:10px; display:none;" alt="Busyto App - Advanced Options"></div><div style="margin-top:12px;"><button class="prev" style="background:#3498db;color:#fff;border:none;padding:8px 14px;border-radius:5px;margin-right:5px;cursor:pointer;">❮</button><button class="next" style="background:#3498db;color:#fff;border:none;padding:8px 14px;border-radius:5px;cursor:pointer;">❯</button></div></div>
+                    <div class="project-download" style="margin-top:40px;text-align:center;"><h3>Download the Busyto App</h3><p style="margin:10px 0; font-style:italic;">Coming Soon</p><a href="https://github.com/manipoureini/Busyto" target="_blank"><i class="fab fa-android" style="font-size:48px;color:#2ecc71;"></i></a></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications">
+            <div class="container">
+                <h2 class="section-title">Publications & Honors</h2>
+                <div class="card">
+                    <div class="publication-item"><h3>Conference Paper</h3><p>"Investigating the Impact of Privacy Protection on Competitive Advantage of Companies"</p><p class="date">1st International Conference on Empowerment of Management, Industrial Engineering, Accounting and Economics | May 2022</p></div>
+                    <div class="publication-item"><h3>Research Project</h3><p><strong>Systematic Literature Review on Social Business Intelligence Readiness Factors (On going)</strong></p><p style="font-style: italic;">Conducting a comprehensive review of existing literature to identify and analyze the key factors influencing the readiness of enterprises for implementing social business intelligence.</p></div>
+                    <div class="publication-item"><h3>Honors & Awards</h3><p><strong>First Place</strong> - Smart Shared Greenhouse Business Model</p><p class="date">Startup Entrepreneurship Competition | Tarbiat Modares University | December 2023</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش Donation که کامنت شده است -->
+        <!--
+        <section class="donation-section">
+            <div class="container">
+                <h2 class="section-title">Support My Work</h2>
+                <div class="card">
+                    <p>If you find my work valuable, consider supporting me through a small donation. It helps me dedicate more time to research and open-source projects.</p>
+                    <div style="text-align:center; margin-top:20px;">
+                        <a href="#" style="text-decoration:none; background: var(--accent); color:white; padding:10px 20px; border-radius:5px;">Donate Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+    </main>
+
+    <!-- This part will also NOT be in the PDF -->
     <footer>
         <div class="container">
             <h3>Mani Poureini</h3>
@@ -384,9 +312,20 @@
                 <a href="https://www.linkedin.com/in/mani-poureini/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:Manipoureini@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <p>&copy; 2025 Mani Poureini. All rights reserved.</p>
+
+            <!-- New Download Button -->
+            <button id="download-cv-btn">
+                <i class="fas fa-file-pdf"></i>
+                Download CV as PDF
+            </button>
+
+            <p style="margin-top: 30px;">&copy; 2025 Mani Poureini. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Library Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -416,6 +355,42 @@
                 });
             }
 
+            // PDF Download Logic
+            const downloadBtn = document.getElementById('download-cv-btn');
+            const cvContent = document.getElementById('cv-content');
+
+            downloadBtn.addEventListener('click', function() {
+                // Use html2canvas to capture the cv-content element
+                // The { scale: 2 } option increases the resolution of the capture for a crisper PDF.
+                html2canvas(cvContent, { scale: 2, useCORS: true, logging: true }).then(canvas => {
+                    // Get the image data from the canvas
+                    const imgData = canvas.toDataURL('image/png');
+                    
+                    // A4 page dimensions in mm: 210 x 297
+                    const pdfWidth = 210;
+                    const pageHeight = 297; 
+                    
+                    // Calculate the height of the image in the PDF to maintain aspect ratio
+                    const imgWidth = canvas.width;
+                    const imgHeight = canvas.height;
+                    const ratio = imgHeight / imgWidth;
+                    const pdfHeight = pdfWidth * ratio;
+
+                    // Initialize jsPDF
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF({
+                        orientation: 'portrait',
+                        unit: 'mm',
+                        format: 'a4'
+                    });
+
+                    // Add the image to the PDF
+                    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                    
+                    // Save the PDF
+                    pdf.save('Mani-Poureini-CV.pdf');
+                });
+            });
         });
     </script>
 </body>
