@@ -107,6 +107,7 @@
         }
         .justified-text {
             text-align: justify;
+            hyphens: auto; /* برای شکستن بهتر کلمات در انتهای خط */
         }
 
         .date {
@@ -152,7 +153,7 @@
 
         .social-links a { color: white; font-size: 1.5rem; transition: color 0.3s ease; }
         .social-links a:hover { color: var(--secondary); }
-                #download-cv-btn {
+        #download-cv-btn {
             background-color: var(--success);
             color: white;
             border: none;
@@ -167,6 +168,11 @@
         #download-cv-btn:hover {
             background-color: #27ae60;
             transform: translateY(-2px);
+        }
+        #download-cv-btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
         }
         #download-cv-btn i {
             margin-right: 8px;
@@ -355,40 +361,74 @@
                 });
             }
 
-            // PDF Download Logic
+            // ===================================================================
+            //                      PDF Download Logic (Corrected)
+            // ===================================================================
             const downloadBtn = document.getElementById('download-cv-btn');
             const cvContent = document.getElementById('cv-content');
 
             downloadBtn.addEventListener('click', function() {
-                // Use html2canvas to capture the cv-content element
-                // The { scale: 2 } option increases the resolution of the capture for a crisper PDF.
-                html2canvas(cvContent, { scale: 2, useCORS: true, logging: true }).then(canvas => {
-                    // Get the image data from the canvas
+                // --- Step 1: User Feedback & Prepare Options ---
+                downloadBtn.disabled = true;
+                downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+
+                const options = {
+                    scale: 2, // Higher resolution for better quality
+                    useCORS: true, // Needed for external images (like from GitHub)
+                    logging: true,
+                    width: cvContent.scrollWidth, // Ensure full width is captured
+                    height: cvContent.scrollHeight, // Ensure full height is captured
+                    windowWidth: document.documentElement.scrollWidth,
+                    windowHeight: document.documentElement.scrollHeight
+                };
+
+                // --- Step 2: Generate the long canvas image ---
+                html2canvas(cvContent, options).then(canvas => {
+                    // --- Step 3: Setup PDF and Image Dimensions ---
                     const imgData = canvas.toDataURL('image/png');
+                    const { jsPDF } = window.jspdf;
                     
-                    // A4 page dimensions in mm: 210 x 297
-                    const pdfWidth = 210;
+                    // A4 page dimensions in mm
+                    const pdfWidth = 210; 
                     const pageHeight = 297; 
-                    
-                    // Calculate the height of the image in the PDF to maintain aspect ratio
+
+                    // Calculate the image height in the PDF, maintaining aspect ratio
                     const imgWidth = canvas.width;
                     const imgHeight = canvas.height;
                     const ratio = imgHeight / imgWidth;
-                    const pdfHeight = pdfWidth * ratio;
+                    const pdfImgHeight = pdfWidth * ratio;
 
-                    // Initialize jsPDF
-                    const { jsPDF } = window.jspdf;
-                    const pdf = new jsPDF({
-                        orientation: 'portrait',
-                        unit: 'mm',
-                        format: 'a4'
-                    });
-
-                    // Add the image to the PDF
-                    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                    let heightLeft = pdfImgHeight;
+                    let position = 0;
                     
-                    // Save the PDF
+                    // Initialize the PDF
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+
+                    // --- Step 4: Add the first page ---
+                    // Add the image to the first page. It will be clipped at pageHeight.
+                    pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfImgHeight);
+                    heightLeft -= pageHeight;
+
+                    // --- Step 5: Loop and add new pages for remaining content ---
+                    while (heightLeft > 0) {
+                        position = position - pageHeight; // Move the image "up" by one page height
+                        pdf.addPage();
+                        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfImgHeight);
+                        heightLeft -= pageHeight;
+                    }
+
+                    // --- Step 6: Save the complete PDF ---
                     pdf.save('Mani-Poureini-CV.pdf');
+                    
+                    // --- Step 7: Reset the button ---
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download CV as PDF';
+                }).catch(error => {
+                    console.error("Error generating PDF:", error);
+                    // Reset button in case of an error
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download CV as PDF';
+                    alert("Sorry, an error occurred while generating the PDF.");
                 });
             });
         });
