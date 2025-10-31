@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mani Poureini - Academic Support</title>
+    <title>Mani Poureini - CV</title>
     <link rel="icon" href="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/WbLogo.png" type="image/png" sizes="32x32">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ======================================================= */
+        /*                  STYLES FOR SCREEN VIEW                 */
+        /* ======================================================= */
         :root {
             --primary: #2c3e50;
             --secondary: #3498db;
@@ -29,6 +32,12 @@
             width: 90%; max-width: 1200px;
             margin: 0 auto; padding: 20px;
         }
+
+        /* این کد باعث می‌شود divهای مخصوص پرینت در حالت عادی دیده نشوند */
+        .print-container, .print-left-column, .print-right-column {
+            display: contents;
+        }
+
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white; padding: 60px 0; text-align: center;
@@ -106,214 +115,223 @@
         #download-cv-btn i { margin-right: 8px; }
 
         /* ======================================================= */
-        /*               PROFESSIONAL PRINT STYLES                 */
+        /*         PROFESSIONAL CV STYLES FOR PRINTING             */
         /* ======================================================= */
         @media print {
-            /* --- Hide unwanted elements --- */
-            footer, .project-slideshow .prev, .project-slideshow .next {
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+
+            body {
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 11pt;
+                line-height: 1.4;
+                background-color: #fff;
+                color: #000;
+            }
+
+            /* --- مخفی کردن عناصر غیرضروری --- */
+            footer, .tagline, .project-slideshow, .project-download, .section-title::after, #about-me {
                 display: none !important;
             }
 
-            /* --- General Body and Page Setup --- */
-            body {
-                background-color: #fff;
-                color: #000;
-                font-size: 11pt;
+            /* --- بازتعریف ساختار اصلی با CSS Grid --- */
+            .print-container {
+                display: grid !important; /* فعال کردن گرید فقط در حالت چاپ */
+                grid-template-columns: 200px 1fr;
+                gap: 30px;
             }
-            .container {
-                width: 100%;
-                max-width: 100%;
-                padding: 0;
-            }
+            .print-left-column { grid-column: 1; }
+            .print-right-column { grid-column: 2; }
             
-            /* --- Restyle header for a clean print version --- */
+            /* --- استایل‌دهی هدر و ستون چپ --- */
             header {
-                background: none !important; /* Remove gradient background */
-                color: #000 !important;      /* Set text to black */
-                padding: 20px 0;             /* Reduce padding */
-                text-align: left;            /* Align text to the left for a document feel */
-                border-bottom: 2px solid #ccc; /* Add a subtle separator */
-                margin-bottom: 20px;
-                page-break-after: avoid;     /* Try not to break page right after header */
+                background: none !important;
+                color: #000 !important;
+                padding: 0;
+                text-align: left;
             }
             .profile-img {
-                display: none; /* Hide profile image in print version */
+                display: block !important;
+                width: 120px;
+                height: 120px;
+                border: none;
+                margin: 0 auto 25px; /* عکس را در ستون چپ وسط‌چین می‌کند */
             }
-            h1, .tagline {
-                text-align: left; /* Ensure title is left-aligned */
+            .profile-img img {
+                width: 100%;
+                height: 100%;
+            }
+            header h1 {
+                font-size: 1.8rem;
+                text-align: left;
+                margin-bottom: 20px;
+                border-bottom: 2px solid black;
+                padding-bottom: 10px;
             }
             .contact-info {
-                justify-content: flex-start; /* Align contact info to the left */
+                display: block;
+                margin-top: 0;
             }
-            .contact-info a {
-                color: #000 !important; /* Make contact links black */
-            }
+            .contact-item { margin-bottom: 10px; }
+            .contact-item i { margin-right: 8px; }
+            .contact-item a { color: #000 !important; text-decoration: none !important; }
 
-
-            /* --- Reset Card styles for clean print --- */
-            .card {
-                box-shadow: none;
-                border: 1px solid #ddd;
-                padding: 20px;
-                margin-bottom: 20px;
+            /* --- استایل‌دهی مجدد بخش‌ها --- */
+            section {
+                padding: 0;
+                margin-bottom: 25px;
                 page-break-inside: avoid;
             }
-
-            /* --- Section Styling --- */
-            section {
-                padding: 10mm 0;
+            .card {
+                box-shadow: none; border: none; padding: 0; border-radius: 0;
             }
-            /* Start new sections on a new page, but not the very first one */
-            #about-me { page-break-before: avoid; }
-            #education, #experience, #skills, #projects, #publications {
-                page-break-before: always;
+            .section-title {
+                text-align: left; margin-bottom: 15px; font-size: 1.2rem;
+                font-weight: bold; color: #000;
+                border-bottom: 1px solid #333; padding-bottom: 5px;
             }
 
-            .section-title::after {
-                background: #ccc; /* Use a simple gray for the underline */
+            /* --- استایل آیتم‌های داخل بخش‌ها --- */
+            .education-item, .experience-item, .publication-item {
+                border-bottom: none; padding-bottom: 0; margin-bottom: 20px;
             }
+            h3 { font-size: 1.1rem; margin: 0; }
+            .date {
+                float: right; color: #333; font-weight: normal; font-style: italic;
+            }
+            p, ul { margin: 5px 0; }
+            ul { padding-left: 20px; }
 
-            /* --- Make links visible and clear for print --- */
-            a {
-                color: #0000EE !important; /* Standard blue for links */
-                text-decoration: underline !important;
+            /* --- استایل مهارت‌ها در ستون چپ --- */
+            #skills .skills-container { display: block; }
+            #skills h4 { font-size: 1rem; margin-top: 15px; margin-bottom: 5px; }
+            #skills .skill-list { display: block; }
+            #skills .skill-tag {
+                background: none; padding: 0; border-radius: 0;
+                font-size: 10pt; line-height: 1.5;
             }
-
-            /* --- Simplify complex elements --- */
-            .skill-tag {
-                background-color: #eee !important;
-                border: 1px solid #ccc;
-                color: #000 !important;
-            }
-            
-            /* --- Handle the slideshow images for print --- */
-            .project-slideshow {
-                text-align: left !important;
-            }
-            .slideshow-container {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            .slide {
-                display: block !important; /* Show all slides */
-                width: 48% !important; /* Display them side-by-side */
-            }
+            .container { width: 100%; max-width: 100%; padding: 0; margin: 0; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="profile-img">
-                <img src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/_MG_8790.jpg" alt="Mani Poureini">
-            </div>
-            <h1>Mani Poureini</h1>
-            <p class="tagline">Pursuing Knowledge Beyond Borders</p>
-            <div class="contact-info">
-                <div class="contact-item"><i class="fas fa-envelope"></i><span><a href="mailto:Manipoureini@gmail.com">Manipoureini@gmail.com</a></span></div>
-                <div class="contact-item"><i class="fas fa-phone"></i><span>(+98) 930 515 6278</span></div>
-                <div class="contact-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/mani-poureini/" target="_blank">linkedin.com/in/mani-poureini/</a></div>
-            </div>
+    <div class="print-container">
+        <div class="print-left-column">
+            <!-- HEADER: شامل عکس، نام، اطلاعات تماس. در پرینت در ستون چپ قرار می‌گیرد -->
+            <header>
+                <div class="container">
+                    <div class="profile-img">
+                        <img src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/_MG_8790.jpg" alt="Mani Poureini">
+                    </div>
+                    <h1>Mani Poureini</h1>
+                    <p class="tagline">Pursuing Knowledge Beyond Borders</p>
+                    <div class="contact-info">
+                        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:Manipoureini@gmail.com">Manipoureini@gmail.com</a></div>
+                        <div class="contact-item"><i class="fas fa-phone"></i><span>(+98) 930 515 6278</span></div>
+                        <div class="contact-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/mani-poureini/" target="_blank">linkedin.com/in/mani-poureini</a></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- SKILLS: در پرینت در ستون چپ قرار می‌گیرد -->
+            <section id="skills">
+                <div class="container">
+                    <h2 class="section-title">SKILLS</h2>
+                    <div class="card">
+                        <div class="skills-container">
+                            <div><h4>Languages</h4><div class="skill-list"><span class="skill-tag">- English: Advanced</span><span class="skill-tag">- Persian: Native</span><span class="skill-tag">- French: Basic</span></div></div>
+                            <div><h4>Computer Languages</h4><div class="skill-list"><span class="skill-tag">- C++</span><span class="skill-tag">- Python</span><span class="skill-tag">- C#</span><span class="skill-tag">- SQL</span><span class="skill-tag">- NoSQL</span></div></div>
+                            <div><h4>Data Analysis & Visualization</h4><div class="skill-list"><span class="skill-tag">- Power BI</span><span class="skill-tag">- Tableau</span><span class="skill-tag">- Microsoft Office</span><span class="skill-tag">- Google Sheets</span><span class="skill-tag">- KH Coder</span><span class="skill-tag">- NodeXL</span><span class="skill-tag">- Orange</span></div></div>
+                            <div><h4>Artificial Intelligence</h4><div class="skill-list"><span class="skill-tag">- Decision Trees</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </header>
 
-    <main>
-        <section id="about-me">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="card">
-                    <p class="justified-text">My research explores how emerging technologies—from AI and social media analytics to open innovation platforms—are transforming work, creating new forms of value, and empowering society. I am passionate about investigating these shifts using a blend of classic and cutting-edge research methodologies.</p>
-                    <p class="justified-text">My goal is twofold: to advance academic knowledge as a future professor, and to leverage these insights to help businesses, startups, and individuals thrive in a rapidly evolving digital landscape.</p>
-                    <hr class="divider">
-                    <h3 style="color: var(--primary); margin-bottom: 15px;">Research Interests</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Human-Computer Collaboration</span>
-                        <span class="skill-tag">Smart Cities</span>
-                        <span class="skill-tag">Social Media Analytics</span>
-                        <span class="skill-tag">Business Intelligence</span>
-                        <span class="skill-tag">Entrepreneurship</span>
+        <div class="print-right-column">
+            <!-- بقیه محتوا که در وب زیر هم و در پرینت در ستون راست نمایش داده می‌شوند -->
+            <main>
+                <section id="about-me">
+                     <div class="container">
+                        <h2 class="section-title">About Me</h2>
+                        <div class="card"><p class="justified-text">My research explores how emerging technologies—from AI and social media analytics to open innovation platforms—are transforming work, creating new forms of value, and empowering society. I am passionate about investigating these shifts using a blend of classic and cutting-edge research methodologies.</p></div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <div class="container">
-                <h2 class="section-title">Education</h2>
-                <div class="card">
-                    <div class="education-item">
-                        <h3>Master of Information Technology Management</h3>
-                        <p class="date">2022 – 2025</p>
-                        <p><strong>Tarbiat Modares University, Tehran, Iran</strong></p>
-                        <p>Specialization in Business Intelligence | Cumulative GPA: 3.90/4.00</p>
-                        <p><em>Thesis:</em> Investigating and identifying the metrics needed to evaluate social business intelligence utilization readiness in Iran's online retail industry.</p>
+                </section>
+                
+                <section id="education">
+                    <div class="container">
+                        <h2 class="section-title">EDUCATION</h2>
+                        <div class="card">
+                            <div class="education-item">
+                                <p class="date">2022 – 2025</p>
+                                <h3>Master of Information Technology Management</h3>
+                                <p><strong>Tarbiat Modares University, Tehran, Iran</strong></p>
+                                <p>Specialization in Business Intelligence | Cumulative GPA: 3.90/4.00</p>
+                                <p><em>Thesis:</em> Investigating and identifying the metrics needed to evaluate social business intelligence utilization readiness in Iran's online retail industry.</p>
+                            </div>
+                            <div class="education-item">
+                                <p class="date">2018 - 2022</p>
+                                <h3>Bachelor of Science in Business Administration</h3>
+                                <p><strong>Lorestan University, Khorramabad, Iran</strong></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="education-item">
-                        <h3>Bachelor of Science in Business Administration</h3>
-                        <p class="date">2018 - 2022</p>
-                        <p><strong>Lorestan University, Khorramabad, Iran</strong></p>
+                </section>
+
+                <section id="experience">
+                    <div class="container">
+                        <h2 class="section-title">RESEARCH EXPERIENCE</h2>
+                        <div class="card">
+                            <div class="experience-item">
+                                <p class="date">Feb 2024 – Feb 2025</p>
+                                <h3>Research Assistant</h3>
+                                <p><strong>Center for Management Studies and Technology Development, Tarbiat Modares University</strong></p>
+                                <ul>
+                                    <li>Analyze the current IT management condition of an enterprise based on the BABOK.</li>
+                                    <li>Develop a comprehensive checklist for assessing the enterprise's IT governance condition, utilizing frameworks such as ITIL v.4, COBIT 2019, relevant ISO standards, and the APQC checklist.</li>
+                                    <li>Employ the Forrester Digital Maturity Model to evaluate the enterprise's digital maturity level.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <section id="experience">
-            <div class="container">
-                <h2 class="section-title">Research Experience</h2>
-                <div class="card">
-                    <div class="experience-item">
-                        <h3>Research Assistant</h3>
-                        <p class="date">February 2024 – February 2025</p>
-                        <p><strong>Center for Management Studies and Technology Development</strong></p>
-                        <p>Tarbiat Modares University, Tehran, Iran</p>
-                        <ul>
-                            <li>Analyzed current IT management conditions based on the BABOK framework</li>
-                            <li>Developed checklists for assessing IT governance using ITIL v.4, COBIT 2019, and ISO standards</li>
-                            <li>Evaluated enterprise digital maturity with the Forrester Digital Maturity Model</li>
-                            <li>Contributed to IT strategies tailored to enterprise needs</li>
-                        </ul>
+                <section id="publications">
+                    <div class="container">
+                        <h2 class="section-title">PUBLICATIONS AND CONFERENCE PAPERS</h2>
+                        <div class="card">
+                            <div class="publication-item">
+                                <p class="date">May 2022</p>
+                                <h3>Conference Paper</h3>
+                                <p>"The impact of privacy-preserving on companies' competitive advantage"</p>
+                                <p><em>1st International Conference on Empowerment of Management, Industrial Engineering, Accounting and Economics</em></p>
+                            </div>
+                            <div class="publication-item">
+                                <h3>Research Project (On going)</h3>
+                                <p>Systematic Literature Review on Social Business Intelligence Readiness Factors.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <div class="container">
-                <h2 class="section-title">Skills & Expertise</h2>
-                <div class="card">
-                    <div class="skills-container">
-                        <div><h4>Technical Skills</h4><div class="skill-list"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">C++</span><span class="skill-tag">C#</span><span class="skill-tag">NoSQL</span></div></div>
-                        <div><h4>Data Analysis & Visualization</h4><div class="skill-list"><span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">IBM SPSS</span><span class="skill-tag">KH Coder</span><span class="skill-tag">NodeXL</span><span class="skill-tag">Orange</span></div></div>
-                        <div><h4>AI & Machine Learning</h4><div class="skill-list"><span class="skill-tag">Decision Trees</span><span class="skill-tag">Regression Analysis</span><span class="skill-tag">Machine Learning</span></div></div>
-                        <div><h4>Languages</h4><div class="skill-list"><span class="skill-tag">English (Advanced)</span><span class="skill-tag">Persian (Native)</span><span class="skill-tag">French (Basic)</span></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="card">
-                    <div class="project-description"><h3>Featured Project: Busyto CRM</h3><p>Busyto is a free, AI-powered Customer Relationship Management (CRM) application designed specifically for small businesses. It aims to simplify customer relationship management by integrating intelligent features, offered completely free of charge to empower growing enterprises.</p></div>
-                    <div class="project-slideshow" style="margin-top: 30px; text-align:center;"><div class="slideshow-container"><img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page1.jpg" style="width:40%; border-radius:10px;" alt="Busyto App - Main Screen"><img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page2.jpg" style="width:40%; border-radius:10px; display:none;" alt="Busyto App - Customer List"><img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page3.jpg" style="width:40%; border-radius:10px; display:none;" alt="Busyto App - Profile Management"><img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page4.jpg" style="width:40%; border-radius:10px; display:none;" alt="Busyto App - Advanced Options"></div><div style="margin-top:12px;"><button class="prev" style="background:#3498db;color:#fff;border:none;padding:8px 14px;border-radius:5px;margin-right:5px;cursor:pointer;">❮</button><button class="next" style="background:#3498db;color:#fff;border:none;padding:8px 14px;border-radius:5px;cursor:pointer;">❯</button></div></div>
-                    <div class="project-download" style="margin-top:40px;text-align:center;"><h3>Download the Busyto App</h3><p style="margin:10px 0; font-style:italic;">Coming Soon</p><a href="https://github.com/manipoureini/Busyto" target="_blank"><i class="fab fa-android" style="font-size:48px;color:#2ecc71;"></i></a></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="publications">
-            <div class="container">
-                <h2 class="section-title">Publications & Honors</h2>
-                <div class="card">
-                    <div class="publication-item"><h3>Conference Paper</h3><p>"Investigating the Impact of Privacy Protection on Competitive Advantage of Companies"</p><p class="date">1st International Conference on Empowerment of Management, Industrial Engineering, Accounting and Economics | May 2022</p></div>
-                    <div class="publication-item"><h3>Research Project</h3><p><strong>Systematic Literature Review on Social Business Intelligence Readiness Factors (On going)</strong></p><p style="font-style: italic;">Conducting a comprehensive review of existing literature to identify and analyze the key factors influencing the readiness of enterprises for implementing social business intelligence.</p></div>
-                    <div class="publication-item"><h3>Honors & Awards</h3><p><strong>First Place</strong> - Smart Shared Greenhouse Business Model</p><p class="date">Startup Entrepreneurship Competition | Tarbiat Modares University | December 2023</p></div>
-                </div>
-            </div>
-        </section>
-    </main>
+                </section>
+                 
+                <section id="honors">
+                     <div class="container">
+                        <h2 class="section-title">HONORS</h2>
+                         <div class="card">
+                             <div class="publication-item">
+                                <p class="date">December 2023</p>
+                                <h3>First Place – Smart Shared Greenhouse Business Model and Plan</h3>
+                                <p><em>Research, Market, and Startup Entrepreneurship Competition, Tarbiat Modares University</em></p>
+                            </div>
+                         </div>
+                     </div>
+                </section>
+            </main>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -323,51 +341,19 @@
                 <a href="https://www.linkedin.com/in/mani-poureini/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:Manipoureini@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-
-            <!-- The button triggers the browser's print function -->
             <button id="download-cv-btn">
                 <i class="fas fa-print"></i>
                 Print / Save as PDF
             </button>
-
             <p style="margin-top: 30px;">&copy; 2025 Mani Poureini. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Slideshow controls
-            let slideIndex = 0;
-            const slides = document.querySelectorAll('.slide');
-            const nextBtn = document.querySelector('.next');
-            const prevBtn = document.querySelector('.prev');
-            
-            function showSlide(index) {
-                if (slides.length === 0) return;
-                slides.forEach(slide => slide.style.display = 'none');
-                slides[index].style.display = 'block';
-            }
-            
-            if (slides.length > 0) showSlide(slideIndex);
-            
-            if (nextBtn && prevBtn) {
-                nextBtn.addEventListener('click', () => {
-                    slideIndex = (slideIndex + 1) % slides.length;
-                    showSlide(slideIndex);
-                });
-                
-                prevBtn.addEventListener('click', () => {
-                    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-                    showSlide(slideIndex);
-                });
-            }
-
-            // Print/PDF Logic
             const downloadBtn = document.getElementById('download-cv-btn');
             if (downloadBtn) {
-                downloadBtn.addEventListener('click', function() {
-                    window.print();
-                });
+                downloadBtn.addEventListener('click', () => window.print());
             }
         });
     </script>
