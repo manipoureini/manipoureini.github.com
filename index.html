@@ -34,7 +34,6 @@
             margin: 0 auto; padding: 20px;
         }
 
-        /* This makes the print-helper divs invisible in screen view */
         .print-container, .print-left-column, .print-right-column {
             display: contents;
         }
@@ -49,7 +48,6 @@
             overflow: hidden;
         }
 
-        /* PROFILE IMAGE STYLING */
         .profile-img {
             width: 150px;
             height: 150px;
@@ -240,12 +238,10 @@
                 color: #000;
             }
 
-            /* --- Hide unnecessary elements for print --- */
             footer, .project-slideshow, .project-download, .section-title::after, .profile-img {
                 display: none !important;
             }
 
-            /* --- Define single column layout --- */
             .print-container {
                 display: block !important;
                 padding: 0 !important;
@@ -257,7 +253,6 @@
                 padding: 0 !important;
             }
 
-            /* --- Header styles --- */
             header {
                 background: none !important;
                 color: #000 !important;
@@ -297,7 +292,6 @@
                 margin-right: 5px;
             }
 
-            /* --- Section box styling --- */
             section {
                 page-break-inside: avoid;
                 border: 1px solid #000;
@@ -317,7 +311,6 @@
                 border-radius: 5px 5px 0 0;
             }
 
-            /* --- Item container styles --- */
             .item-container {
                 margin-bottom: 10px;
                 padding-bottom: 10px;
@@ -345,7 +338,6 @@
                 margin: 5px 0;
             }
 
-            /* --- Skills section styling --- */
             .skills-container {
                 display: block !important;
             }
@@ -372,6 +364,20 @@
             <div class="profile-img">
                 <img src="https://github.com/manipoureini/manipoureini.github.com/raw/main/_MG_8790.jpg" alt="Mani Poureini">
             </div>
+
+            <!-- ✅ آیکون‌های ایمیل، لینکدین و پرینت در بالای صفحه -->
+            <div class="header-icons" style="margin-top: -5px; display: flex; justify-content: center; gap: 20px; font-size: 1.2rem;">
+                <a href="mailto:Manipoureini@gmail.com" style="color: white; text-decoration: none;" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mani-poureini/" target="_blank" style="color: white; text-decoration: none;" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" onclick="window.print()" style="color: white; text-decoration: none;" title="Print">
+                    <i class="fas fa-print"></i>
+                </a>
+            </div>
+
             <h1>Mani Poureini</h1>
             <p class="tagline">Pursuing Knowledge Beyond Borders</p>
             <div class="contact-info">
@@ -384,10 +390,6 @@
 
     <!-- Helper divs for print layout -->
     <div class="print-container">
-        <!-- ===== LEFT COLUMN FOR PRINT ===== -->
-
-
-        <!-- ===== RIGHT COLUMN FOR PRINT ===== -->
         <div class="print-right-column">
             <main>
                 <section id="about-me">
@@ -444,21 +446,21 @@
                             </div>
                         </div>
                     </div>
-                            <div class="print-left-column">
-            <section id="skills">
-                <div class="container">
-                    <h2 class="section-title">Skills</h2>
-                    <div class="card">
-                        <div class="skills-container">
-                            <div><h4>Technical</h4><div class="skill-list"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">C++</span><span class="skill-tag">C#</span><span class="skill-tag">NoSQL</span></div></div>
-                            <div><h4>Data Analysis</h4><div class="skill-list"><span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">IBM SPSS</span><span class="skill-tag">KH Coder</span><span class="skill-tag">NodeXL</span><span class="skill-tag">Orange</span></div></div>
-                            <div><h4>AI & ML</h4><div class="skill-list"><span class="skill-tag">Decision Trees</span><span class="skill-tag">Regression Analysis</span><span class="skill-tag">Machine Learning</span></div></div>
-                            <div><h4>Languages</h4><div class="skill-list"><span class="skill-tag">English (Advanced)</span><span class="skill-tag">Persian (Native)</span><span class="skill-tag">French (Basic)</span></div></div>
+                </section>
+
+                <!-- ✅ بخش Skills به درستی بعد از Research Experience قرار داده شده -->
+                <section id="skills">
+                    <div class="container">
+                        <h2 class="section-title">Skills</h2>
+                        <div class="card">
+                            <div class="skills-container">
+                                <div><h4>Technical</h4><div class="skill-list"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">C++</span><span class="skill-tag">C#</span><span class="skill-tag">NoSQL</span></div></div>
+                                <div><h4>Data Analysis</h4><div class="skill-list"><span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">IBM SPSS</span><span class="skill-tag">KH Coder</span><span class="skill-tag">NodeXL</span><span class="skill-tag">Orange</span></div></div>
+                                <div><h4>AI & ML</h4><div class="skill-list"><span class="skill-tag">Decision Trees</span><span class="skill-tag">Regression Analysis</span><span class="skill-tag">Machine Learning</span></div></div>
+                                <div><h4>Languages</h4><div class="skill-list"><span class="skill-tag">English (Advanced)</span><span class="skill-tag">Persian (Native)</span><span class="skill-tag">French (Basic)</span></div></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
                 </section>
 
                 <section id="projects">
@@ -529,7 +531,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Slideshow controls
             let slideIndex = 0;
             const slides = document.querySelectorAll('.slide');
             const nextBtn = document.querySelector('.next');
@@ -556,7 +557,6 @@
                 });
             }
 
-            // Print/PDF Logic
             document.getElementById('download-cv-btn').addEventListener('click', () => window.print());
         });
     </script>
