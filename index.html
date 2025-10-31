@@ -34,39 +34,25 @@
             color: white; padding: 60px 0; text-align: center;
             position: relative; overflow: hidden;
         }
-        header::before {
-            content: ''; position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
-        }
-
         .profile-img {
             width: 150px; height: 150px;
             border-radius: 50%;
             border: 5px solid rgba(255, 255, 255, 0.3);
             margin: 0 auto 20px;
-            background-color: #fff;
-            display: flex; align-items: center; justify-content: center;
         }
         .profile-img img {
             width: 140px; height: 140px;
             border-radius: 50%; object-fit: cover;
-            border: 4px solid rgba(255, 255, 255, 0.3);
         }
-
         h1 { font-size: 2.5rem; margin-bottom: 10px; }
         .tagline { font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9; }
-
         .contact-info {
             display: flex; justify-content: center; flex-wrap: wrap;
             gap: 20px; margin-top: 20px;
         }
-
-        .contact-item { display: flex; align-items: center; gap: 8px; }
         .contact-item a { color: white; text-decoration: none; }
         .contact-item a:hover { text-decoration: underline; }
-
-        section { padding: 60px 0; }
+        section { padding: 40px 0; }
         .section-title {
             text-align: center; margin-bottom: 40px;
             color: var(--primary); position: relative;
@@ -75,7 +61,6 @@
             content: ''; display: block; width: 80px; height: 4px;
             background: var(--secondary); margin: 10px auto; border-radius: 2px;
         }
-
         .card {
             background: white; border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -83,104 +68,117 @@
             transition: transform 0.3s ease;
         }
         .card:hover { transform: translateY(-5px); }
-
-        .education-item, .experience-item {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
+        .education-item, .experience-item, .publication-item {
+            margin-bottom: 25px; padding-bottom: 25px;
             border-bottom: 1px solid #eee;
         }
-        .education-item:last-child, .experience-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .education-item:last-child, .experience-item:last-child, .publication-item:last-child {
+            border-bottom: none; margin-bottom: 0; padding-bottom: 0;
         }
-        
-        .publication-item {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #eee;
-        }
-        .publication-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .justified-text {
-            text-align: justify;
-            hyphens: auto; /* برای شکستن بهتر کلمات در انتهای خط */
-        }
-
-        .date {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
+        .justified-text { text-align: justify; hyphens: auto; }
+        .date { color: var(--secondary); font-weight: 600; margin-bottom: 5px; }
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
-        
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
+        .skill-list { display: flex; flex-wrap: wrap; gap: 10px; }
         .skill-tag {
-            background: var(--light);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            background: var(--light); padding: 5px 15px;
+            border-radius: 20px; font-size: 0.9rem;
         }
-
-        hr.divider {
-            border: 0;
-            height: 1px;
-            background: #eee;
-            margin: 30px 0;
-        }
-
+        hr.divider { border: 0; height: 1px; background: #eee; margin: 30px 0; }
         footer {
             background: var(--dark); color: white;
             text-align: center; padding: 30px 0;
         }
-
-        .social-links {
-            display: flex; justify-content: center; gap: 20px; margin: 20px 0;
-        }
-
+        .social-links { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }
         .social-links a { color: white; font-size: 1.5rem; transition: color 0.3s ease; }
         .social-links a:hover { color: var(--secondary); }
         #download-cv-btn {
-            background-color: var(--success);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
+            background-color: var(--success); color: white;
+            border: none; padding: 12px 25px; font-size: 1rem;
+            font-weight: bold; border-radius: 50px; cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
             margin-top: 20px;
         }
-        #download-cv-btn:hover {
-            background-color: #27ae60;
-            transform: translateY(-2px);
-        }
-        #download-cv-btn:disabled {
-            background-color: #95a5a6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        #download-cv-btn i {
-            margin-right: 8px;
+        #download-cv-btn:hover { background-color: #27ae60; transform: translateY(-2px); }
+        #download-cv-btn i { margin-right: 8px; }
+
+        /* ======================================================= */
+        /*               PROFESSIONAL PRINT STYLES                 */
+        /* ======================================================= */
+        @media print {
+            /* --- Hide unwanted elements --- */
+            header, footer, .project-slideshow .prev, .project-slideshow .next {
+                display: none !important;
+            }
+
+            /* --- General Body and Page Setup --- */
+            body {
+                background-color: #fff;
+                color: #000;
+                font-size: 11pt; /* A good font size for print */
+            }
+            .container {
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            /* --- Reset Card styles for clean print --- */
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                padding: 20px;
+                margin-bottom: 20px;
+                /* Prevents cards from splitting across pages */
+                page-break-inside: avoid;
+            }
+
+            /* --- Section Styling --- */
+            section {
+                padding: 10mm 0; /* Add some vertical spacing */
+            }
+             /* Start new sections on a new page, except the first one */
+            #education, #experience, #skills, #projects, #publications {
+                page-break-before: always;
+            }
+
+            .section-title::after {
+                background: #ccc; /* Use a simple gray for the underline */
+            }
+
+            /* --- Make links visible and clear for print --- */
+            a {
+                color: #0000EE !important; /* Standard blue for links */
+                text-decoration: underline !important;
+            }
+
+            /* --- Simplify complex elements --- */
+            .skill-tag {
+                background-color: #eee !important;
+                border: 1px solid #ccc;
+                color: #000 !important;
+            }
+            
+            /* --- Handle the slideshow images for print --- */
+            .project-slideshow {
+                text-align: left !important;
+            }
+            .slideshow-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .slide {
+                display: block !important; /* Show all slides */
+                width: 48% !important; /* Display them side-by-side */
+            }
         }
     </style>
 </head>
 <body>
-    <!-- This part will NOT be in the PDF -->
     <header>
         <div class="container">
             <div class="profile-img">
@@ -196,8 +194,8 @@
         </div>
     </header>
 
-    <!-- This is the main content that will be converted to PDF -->
     <main id="cv-content">
+        <!-- All your sections remain exactly the same here -->
         <section id="about-me">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
@@ -292,24 +290,8 @@
                 </div>
             </div>
         </section>
-
-        <!-- بخش Donation که کامنت شده است -->
-        <!--
-        <section class="donation-section">
-            <div class="container">
-                <h2 class="section-title">Support My Work</h2>
-                <div class="card">
-                    <p>If you find my work valuable, consider supporting me through a small donation. It helps me dedicate more time to research and open-source projects.</p>
-                    <div style="text-align:center; margin-top:20px;">
-                        <a href="#" style="text-decoration:none; background: var(--accent); color:white; padding:10px 20px; border-radius:5px;">Donate Now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        -->
     </main>
 
-    <!-- This part will also NOT be in the PDF -->
     <footer>
         <div class="container">
             <h3>Mani Poureini</h3>
@@ -319,23 +301,21 @@
                 <a href="mailto:Manipoureini@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
 
-            <!-- New Download Button -->
+            <!-- The button now triggers the browser's print function -->
             <button id="download-cv-btn">
-                <i class="fas fa-file-pdf"></i>
-                Download CV as PDF
+                <i class="fas fa-print"></i>
+                Print / Save as PDF
             </button>
 
             <p style="margin-top: 30px;">&copy; 2025 Mani Poureini. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Library Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- No external libraries needed for PDF generation anymore -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Slideshow controls
+            // Slideshow controls (remains the same)
             let slideIndex = 0;
             const slides = document.querySelectorAll('.slide');
             const nextBtn = document.querySelector('.next');
@@ -347,7 +327,7 @@
                 slides[index].style.display = 'block';
             }
             
-            showSlide(slideIndex);
+            if (slides.length > 0) showSlide(slideIndex);
             
             if (nextBtn && prevBtn) {
                 nextBtn.addEventListener('click', () => {
@@ -361,75 +341,11 @@
                 });
             }
 
-            // ===================================================================
-            //                      PDF Download Logic (Corrected)
-            // ===================================================================
+            // --- Simplified PDF/Print Logic ---
             const downloadBtn = document.getElementById('download-cv-btn');
-            const cvContent = document.getElementById('cv-content');
-
             downloadBtn.addEventListener('click', function() {
-                // --- Step 1: User Feedback & Prepare Options ---
-                downloadBtn.disabled = true;
-                downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
-
-                const options = {
-                    scale: 2, // Higher resolution for better quality
-                    useCORS: true, // Needed for external images (like from GitHub)
-                    logging: true,
-                    width: cvContent.scrollWidth, // Ensure full width is captured
-                    height: cvContent.scrollHeight, // Ensure full height is captured
-                    windowWidth: document.documentElement.scrollWidth,
-                    windowHeight: document.documentElement.scrollHeight
-                };
-
-                // --- Step 2: Generate the long canvas image ---
-                html2canvas(cvContent, options).then(canvas => {
-                    // --- Step 3: Setup PDF and Image Dimensions ---
-                    const imgData = canvas.toDataURL('image/png');
-                    const { jsPDF } = window.jspdf;
-                    
-                    // A4 page dimensions in mm
-                    const pdfWidth = 210; 
-                    const pageHeight = 297; 
-
-                    // Calculate the image height in the PDF, maintaining aspect ratio
-                    const imgWidth = canvas.width;
-                    const imgHeight = canvas.height;
-                    const ratio = imgHeight / imgWidth;
-                    const pdfImgHeight = pdfWidth * ratio;
-
-                    let heightLeft = pdfImgHeight;
-                    let position = 0;
-                    
-                    // Initialize the PDF
-                    const pdf = new jsPDF('p', 'mm', 'a4');
-
-                    // --- Step 4: Add the first page ---
-                    // Add the image to the first page. It will be clipped at pageHeight.
-                    pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfImgHeight);
-                    heightLeft -= pageHeight;
-
-                    // --- Step 5: Loop and add new pages for remaining content ---
-                    while (heightLeft > 0) {
-                        position = position - pageHeight; // Move the image "up" by one page height
-                        pdf.addPage();
-                        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfImgHeight);
-                        heightLeft -= pageHeight;
-                    }
-
-                    // --- Step 6: Save the complete PDF ---
-                    pdf.save('Mani-Poureini-CV.pdf');
-                    
-                    // --- Step 7: Reset the button ---
-                    downloadBtn.disabled = false;
-                    downloadBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download CV as PDF';
-                }).catch(error => {
-                    console.error("Error generating PDF:", error);
-                    // Reset button in case of an error
-                    downloadBtn.disabled = false;
-                    downloadBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download CV as PDF';
-                    alert("Sorry, an error occurred while generating the PDF.");
-                });
+                // This single line opens the browser's print dialog
+                window.print();
             });
         });
     </script>
