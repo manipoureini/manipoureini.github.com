@@ -94,6 +94,17 @@
             margin-bottom: 0;
             padding-bottom: 0;
         }
+        
+        .publication-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        .publication-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
 
         .date {
             color: var(--secondary);
@@ -342,18 +353,19 @@
             <div class="card">
                 <!-- Project Description -->
                 <div class="project-description">
-                    <h3>Project Overview</h3>
+                    <h3>Featured Project: Busyto CRM</h3>
                     <p>
-                        This section highlights selected research and software projects under development in the field of Social Business Intelligence, Data Analytics, and IT Management — connecting theoretical insights with real-world applications.
+                        Busyto is a free, AI-powered Customer Relationship Management (CRM) application designed specifically for small businesses. It aims to simplify customer relationship management by integrating intelligent features, offered completely free of charge to empower growing enterprises.
                     </p>
                 </div>
                 
                 <!-- Image Slideshow -->
                 <div class="project-slideshow" style="margin-top: 30px; text-align:center;">
                     <div class="slideshow-container">
-                        <img class="slide" src="https://via.placeholder.com/700x400?text=Project+1" style="width:80%; border-radius:10px;">
-                        <img class="slide" src="https://via.placeholder.com/700x400?text=Project+2" style="width:80%; border-radius:10px; display:none;">
-                        <img class="slide" src="https://via.placeholder.com/700x400?text=Project+3" style="width:80%; border-radius:10px; display:none;">
+                        <img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page1.jpg" style="width:60%; border-radius:10px;" alt="Busyto App - Main Screen">
+                        <img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page2.jpg" style="width:60%; border-radius:10px; display:none;" alt="Busyto App - Customer List">
+                        <img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page3.jpg" style="width:60%; border-radius:10px; display:none;" alt="Busyto App - Profile Management">
+                        <img class="slide" src="https://raw.githubusercontent.com/manipoureini/manipoureini.github.com/main/Page4.jpg" style="width:60%; border-radius:10px; display:none;" alt="Busyto App - Advanced Options">
                     </div>
                     <div style="margin-top:12px;">
                         <button class="prev" style="background:#3498db;color:#fff;border:none;padding:8px 14px;border-radius:5px;margin-right:5px;cursor:pointer;">❮</button>
@@ -363,9 +375,9 @@
                 
                 <!-- Download Section -->
                 <div class="project-download" style="margin-top:40px;text-align:center;">
-                    <h3>Download the App</h3>
+                    <h3>Download the Busyto App</h3>
                     <p style="margin:10px 0; font-style:italic;">Coming Soon</p>
-                    <i class="fab fa-android" style="font-size:48px;color:#2ecc71;"></i>
+                    <a href="https://github.com/manipoureini/Busyto" target="_blank"><i class="fab fa-android" style="font-size:48px;color:#2ecc71;"></i></a>
                 </div>
             </div>
         </div>
@@ -401,12 +413,23 @@
         <div class="container">
             <h2 class="section-title">Publications & Honors</h2>
             <div class="card">
-                <h3>Conference Paper</h3>
-                <p>"Investigating the Impact of Privacy Protection on Competitive Advantage of Companies"</p>
-                <p class="date">1st International Conference on Empowerment of Management, Industrial Engineering, Accounting and Economics | May 2022</p>
-                <h3 style="margin-top:30px;">Honors & Awards</h3>
-                <p><strong>First Place</strong> - Smart Shared Greenhouse Business Model</p>
-                <p class="date">Startup Entrepreneurship Competition | Tarbiat Modares University | December 2023</p>
+                <div class="publication-item">
+                    <h3>Conference Paper</h3>
+                    <p>"Investigating the Impact of Privacy Protection on Competitive Advantage of Companies"</p>
+                    <p class="date">1st International Conference on Empowerment of Management, Industrial Engineering, Accounting and Economics | May 2022</p>
+                </div>
+                
+                <div class="publication-item">
+                    <h3>Research Project</h3>
+                    <p><strong>Systematic Literature Review on Social Business Intelligence Readiness Factors (On going)</strong></p>
+                    <p style="font-style: italic;">Conducting a comprehensive review of existing literature to identify and analyze the key factors influencing the readiness of enterprises for implementing social business intelligence.</p>
+                </div>
+
+                <div class="publication-item">
+                    <h3>Honors & Awards</h3>
+                    <p><strong>First Place</strong> - Smart Shared Greenhouse Business Model</p>
+                    <p class="date">Startup Entrepreneurship Competition | Tarbiat Modares University | December 2023</p>
+                </div>
             </div>
         </div>
     </section>
@@ -419,7 +442,7 @@
                 <a href="https://www.linkedin.com/in/mani-poureini/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:Manipoureini@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <p>&copy; 2023 Mani Poureini. All rights reserved.</p>
+            <p>&copy; 2025 Mani Poureini. All rights reserved.</p>
         </div>
     </footer>
 
@@ -435,6 +458,7 @@
             const prevBtn = document.querySelector('.prev');
             
             function showSlide(index) {
+                if (slides.length === 0) return;
                 slides.forEach(slide => slide.style.display = 'none');
                 slides[index].style.display = 'block';
             }
