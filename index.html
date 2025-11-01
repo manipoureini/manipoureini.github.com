@@ -229,6 +229,9 @@
                 size: A4;
                 margin: 1.5cm;
             }
+            img {
+                display: none !important; /* یا فقط برای بخش‌هایی که نیاز نداری */
+            }
 
             body {
                 font-family: 'Times New Roman', Times, serif;
@@ -565,7 +568,15 @@
                 });
             }
 
-            document.getElementById('download-cv-btn').addEventListener('click', () => window.print());
+            document.getElementById('download-cv-btn').addEventListener('click', () => {
+            const element = document.body; // کل صفحه را به PDF تبدیل می‌کند
+            const opt = {
+                margin: 0.3,
+                filename: 'Mani_Poureini_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
         });
     </script>
 </body>
