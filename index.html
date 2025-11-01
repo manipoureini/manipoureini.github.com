@@ -367,21 +367,33 @@
 
             <!-- ✅ آیکون‌های ایمیل، لینکدین و پرینت در بالای صفحه -->
             <div class="header-icons" style="margin-top: -5px; display: flex; justify-content: center; gap: 20px; font-size: 1.2rem;">
-                <a href="mailto:Manipoureini@gmail.com" style="color: white; text-decoration: none;" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/mani-poureini/" target="_blank" style="color: white; text-decoration: none;" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i><a>
             </div>
 
             <h1>Mani Poureini</h1>
             <p class="tagline">Ph.D. Candidate</p>
-            <div class="contact-info">
-                <div class="contact-item"></i><span><a 
-                </div>
-                <div class="contact-item"><i class="fas fa-phone"></i><span> (+98) 930 515 6278</span></div>
-            </div>
+            <div class="contact-info" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+    
+    <!-- خط اول: فقط شماره -->
+    <div class="contact-item">
+        <i class="fas fa-phone"></i><span> (+98) 930 515 6278</span>
+    </div>
+    
+    <!-- خط دوم: ایمیل و لینکدین در یک ردیف -->
+    <div style="display: flex; gap: 20px; justify-content: center;">
+        <div class="contact-item">
+            <a href="mailto:Manipoureini@gmail.com" style="color: white; text-decoration: none;" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
         </div>
+        <div class="contact-item">
+            <a href="https://www.linkedin.com/in/mani-poureini/" target="_blank" style="color: white; text-decoration: none;" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+
+</div>
+
     </header>
 
     <!-- Helper divs for print layout -->
