@@ -540,48 +540,36 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        const nextBtn = document.querySelector('.next');
-        const prevBtn = document.querySelector('.prev');
-        
-        function showSlide(index) {
-            if (slides.length === 0) return;
-            slides.forEach((slide, i) => {
-                slide.style.display = (i === index) ? 'inline-block' : 'none';
-            });
-        }
-        
-        if (slides.length > 0) showSlide(slideIndex);
-        
-        if (nextBtn && prevBtn) {
-            nextBtn.addEventListener('click', () => {
-                slideIndex = (slideIndex + 1) % slides.length;
-                showSlide(slideIndex);
-            });
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slide');
+            const nextBtn = document.querySelector('.next');
+            const prevBtn = document.querySelector('.prev');
             
-            prevBtn.addEventListener('click', () => {
-                slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-                showSlide(slideIndex);
-            });
-        }
+            function showSlide(index) {
+                if (slides.length === 0) return;
+                slides.forEach((slide, i) => {
+                    slide.style.display = (i === index) ? 'inline-block' : 'none';
+                });
+            }
+            
+            if (slides.length > 0) showSlide(slideIndex);
+            
+            if (nextBtn && prevBtn) {
+                nextBtn.addEventListener('click', () => {
+                    slideIndex = (slideIndex + 1) % slides.length;
+                    showSlide(slideIndex);
+                });
+                
+                prevBtn.addEventListener('click', () => {
+                    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+                    showSlide(slideIndex);
+                });
+            }
 
-        // ✅ عملکرد دکمه Save as PDF
-        document.getElementById('download-cv-btn').addEventListener('click', () => {
-            const element = document.querySelector('.print-container'); // فقط رزومه را PDF کنه (نه دکمه و فوتر)
-            const opt = {
-                margin: 0.3,
-                filename: 'Mani_Poureini_CV.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save(); 
+            document.getElementById('download-cv-btn').addEventListener('click', () => window.print());
         });
-    });
-</script>
+    </script>
 </body>
 </html>
